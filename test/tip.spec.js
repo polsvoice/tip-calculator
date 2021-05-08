@@ -18,3 +18,12 @@ describe("Tip Calculator", function(){
     expect(total(0.66, .11)).toEqual(0.77);
   });
 });
+
+describe("Tip Calculator UI", function(){
+  let field = document.createElement('input');
+  field.placeholder = 15;
+  
+  it("extracts the value from the form field", function(){
+    expect(tip_val_field(field)).toEqual(15);
+  });
+});
