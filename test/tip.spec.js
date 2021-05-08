@@ -23,7 +23,20 @@ describe("Tip Calculator UI", function(){
   let field = document.createElement('input');
   field.placeholder = 15;
   
-  it("extracts the value from the form field", function(){
+  beforeEach(function(){
+    field.value = undefined;
+  });
+  
+  it("retrieves the placeholder value", function(){
+    field.value = undefined;
     expect(tip_val_field(field)).toEqual(15);
+  });
+  it("retrieves a custom value", function(){
+    field.value = 20;
+    expect(tip_val_field(field)).toEqual(20);
+  });
+  it("retrieves a floating point number", function(){
+    field.value = 17.25;
+    expect(tip_val_field(field)).toEqual(17.25);
   });
 });

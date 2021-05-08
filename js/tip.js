@@ -18,5 +18,5 @@ function total(num1, num2){
 
 // Get tip amount from field
 function tip_val_field(field){
-  return 15;
+  return parseFloat(field.value) || parseFloat(field.placeholder);
 }
