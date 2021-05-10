@@ -6,8 +6,7 @@
         , total_lb = document.querySelector("label[for='total']");
         
   submit_button.addEventListener("click", function(){
-    console.log("the tip value is " + tip.value);
-    const tip_amount_val = tip_amount(tip.value);
-    console.log(tip_amount_val);
+    const tip_value = val_field(tip);
+    console.log("Tip value = " + tip_value);
   });
 })();
