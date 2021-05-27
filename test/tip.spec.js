@@ -28,7 +28,6 @@ describe("Tip Calculator UI", function(){
   });
   
   it("retrieves the placeholder value", function(){
-    field.value = undefined;
     expect(val_field(field)).toEqual(15);
   });
   it("retrieves a custom value", function(){
