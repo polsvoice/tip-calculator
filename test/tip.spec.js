@@ -10,8 +10,8 @@ describe("Tip Calculator", function(){
   
   });
   it("computes the tip amount", function(){
-    expect(tip_amount(3.57, .15)).toEqual(.54);
-    expect(tip_amount(17.26, .22)).toEqual(3.8);
+    expect(tip_amount(3.57, 15)).toEqual(.54);
+    expect(tip_amount(17.26, 22)).toEqual(3.8);
   });
   it("computes the total amount", function(){
     expect(total(10.23, 4.56)).toEqual(14.79);

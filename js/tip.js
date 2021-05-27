@@ -7,8 +7,8 @@ function round_to_cents(num){
 }
 
 function tip_amount(bill, tip){
-  console.log("tip_amount called");
-  const tip_decimal = (bill * tip);
+  const tip_amt = tip_calc(tip);
+  const tip_decimal = (bill * tip_amt);
   return round_to_cents(tip_decimal);
 }
 
