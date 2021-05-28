@@ -19,7 +19,7 @@ describe("Tip Calculator", function(){
   });
 });
 
-describe("Tip Calculator UI", function(){
+describe("Tip Calculator Input", function(){
   let field = document.createElement('input');
   field.placeholder = 15;
   
@@ -37,5 +37,14 @@ describe("Tip Calculator UI", function(){
   it("retrieves a floating point number", function(){
     field.value = 17.25;
     expect(val_field(field)).toEqual(17.25);
+  });
+});
+
+describe("Tip Calculator Output", function(){
+  let label = document.createElement('span');
+  
+  it("attaches text output", function(){
+    attach_node_val(label, 6.55);
+    expect(label.textContent).toEqual("6.55");
   });
 });

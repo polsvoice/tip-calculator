@@ -20,3 +20,9 @@ function total(num1, num2){
 function val_field(field){
   return parseFloat(field.value) || parseFloat(field.placeholder);
 }
+
+function attach_node_val(element, value){
+  const new_text = document.createTextNode(String(value));
+  element.appendChild(new_text);
+  return element;
+}
