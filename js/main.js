@@ -2,13 +2,16 @@
   const submit_button = document.querySelector("#calculate")
         , bill = document.querySelector("#bill")
         , tip = document.querySelector("#tip")
-        , tip_amount_lb = document.querySelector("label[for='tip-amount']")
-        , total_lb = document.querySelector("label[for='total']");
+        , tip_amount_output = document.querySelector("#tip-amount")
+        , total_output = document.querySelector("#total");
         
   submit_button.addEventListener("click", function(){
     const bill_amt = val_field(bill);
     const tip_amt = val_field(tip);
-    console.log(bill_amt);
-    console.log(tip_amt);
+    const tip_total = tip_amount(bill_amt, tip_amt);
+    const bill_total = bill_amt + tip_total;
+    
+    attach_node_val(tip_amount_output, tip_total);
+    attach_node_val(total_output, bill_total);
   });
 })();
