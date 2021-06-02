@@ -23,6 +23,8 @@ function val_field(field){
 
 function attach_node_val(element, value){
   const new_text = document.createTextNode(String(value));
+
+  // If text node is already there, delete it
   if (element.textContent){
     element.removeChild(element.childNodes[0]);
   }
