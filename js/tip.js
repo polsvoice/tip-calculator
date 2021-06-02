@@ -23,6 +23,9 @@ function val_field(field){
 
 function attach_node_val(element, value){
   const new_text = document.createTextNode(String(value));
+  if (element.textContent){
+    element.removeChild(element.childNodes[0]);
+  }
   element.appendChild(new_text);
   return element;
 }

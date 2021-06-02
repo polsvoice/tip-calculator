@@ -42,9 +42,13 @@ describe("Tip Calculator Input", function(){
 
 describe("Tip Calculator Output", function(){
   let label = document.createElement('span');
-  
+
   it("attaches text output", function(){
     attach_node_val(label, 6.55);
     expect(label.textContent).toEqual("6.55");
+  });
+  it("flushes prior text output", function(){
+    attach_node_val(label, 5.03);
+    expect(label.textContent).toEqual("5.03");
   });
 });
