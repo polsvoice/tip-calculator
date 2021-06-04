@@ -22,7 +22,9 @@ function val_field(field){
 }
 
 function attach_node_val(element, value){
-  const new_text = document.createTextNode(String(value));
+  // Pad with zeroes
+  const val_to_currency = value.toLocaleString('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2});
+  const new_text = document.createTextNode(val_to_currency);  
 
   // If text node is already there, delete it
   if (element.textContent){

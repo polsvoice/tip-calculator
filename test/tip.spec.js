@@ -45,10 +45,14 @@ describe("Tip Calculator Output", function(){
 
   it("attaches text output", function(){
     attach_node_val(label, 6.55);
-    expect(label.textContent).toEqual("6.55");
+    expect(label.textContent).toEqual("$6.55");
   });
   it("flushes prior text output", function(){
     attach_node_val(label, 5.03);
-    expect(label.textContent).toEqual("5.03");
+    expect(label.textContent).toEqual("$5.03");
   });
+  it("pads with zeroes", function(){
+    attach_node_val(label, 0.4);
+    expect(label.textContent).toEqual("$0.40");
+  })
 });
