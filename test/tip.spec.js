@@ -54,5 +54,17 @@ describe("Tip Calculator Output", function(){
   it("pads with zeroes", function(){
     attach_node_val(label, 0.4);
     expect(label.textContent).toEqual("$0.40");
-  })
+  });
+});
+
+describe("Form Validation", function(){
+  let dummy_input = document.createElement("input")
+    , warning_output = document.createElement("span");
+  dummy_input.type = "number";
+
+  it("returns error message", function(){
+    dummy_input.value = "AbCdE";
+    validation_warning(dummy_input, warning_output);
+    expect(validation_warning(warning_output.value)).toEqual("Error! Please enter a numeric value");
+  });
 });

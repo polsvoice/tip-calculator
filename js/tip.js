@@ -33,3 +33,7 @@ function attach_node_val(element, value){
   element.appendChild(new_text);
   return element;
 }
+
+function isValid(element){
+  return typeof element.value === 'number' ? true : false;
+}
