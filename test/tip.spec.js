@@ -62,9 +62,24 @@ describe("Form Validation", function(){
     , warning_output = document.createElement("span");
   dummy_input.type = "number";
 
-  it("returns error message", function(){
+  it("rejects letters", function(){
     dummy_input.value = "AbCdE";
-    validation_warning(dummy_input, warning_output);
-    expect(validation_warning(warning_output.value)).toEqual("Error! Please enter a numeric value");
+    expect(isValid(dummy_input)).toBe(false);
+  });
+
+  it("rejects non-numeric characters", function(){
+    dummy_input.value = "\+/{}";
+    expect(isValid(dummy_input)).toBe(false);
+  });
+
+  it("accepts floating-point numbers", function(){
+    dummy_input.value = 5;
+    expect(isValid(dummy_input)).toBe(true);
+  });
+
+  xit("returns error message", function(){
+
+    warningMessage(false, warning_output);
+    expect(warning_output.value).toEqual("Error! Please enter a numeric value");
   });
 });
