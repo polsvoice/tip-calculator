@@ -73,7 +73,7 @@ describe("Form Validation", function(){
   });
 
   it("accepts floating-point numbers", function(){
-    dummy_input.value = 5;
+    dummy_input.value = 5.35;
     expect(isValid(dummy_input)).toBe(true);
   });
 
