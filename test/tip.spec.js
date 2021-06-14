@@ -77,9 +77,9 @@ describe("Form Validation", function(){
     expect(isValid(dummy_input)).toBe(true);
   });
 
-  xit("returns error message", function(){
-
-    warningMessage(false, warning_output);
+  it("returns error message", function(){
+    let warning_output = document.createElement('div');
+    warning_message(false, warning_output);
     expect(warning_output.value).toEqual("Error! Please enter a numeric value");
   });
 });
