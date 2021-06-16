@@ -85,8 +85,7 @@ describe('Form Validation', function(){
   });
 
   it('returns error message', function(){
-    let warning_output = document.createElement('div');
-    warning_message(false, warning_output);
-    expect(warning_output.value).toEqual('Error! Please enter a numeric value');
+    warning_message(true, warning_output);
+    expect(warning_output.textContent).toEqual('Error! Please enter a numeric value');
   });
 });

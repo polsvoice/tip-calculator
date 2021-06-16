@@ -25,6 +25,12 @@ function val_to_currency(value){
   return value.toLocaleString('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 2});
 }
 
+function isValid(element){
+  // convert string into number. If it's a non-numeric string,
+  // it'll return 0
+  return Number(element.value) ? true : false;
+}
+
 function attach_node_val(element, value){
   const new_text = document.createTextNode(value);  
 
@@ -36,8 +42,8 @@ function attach_node_val(element, value){
   return element;
 }
 
-function isValid(element){
-  // convert string into number. If it's a non-numeric string,
-  // it'll return 0
-  return Number(element.value) ? true : false;
+function warning_message(isError, element, message = 'Error! Please enter a numeric value'){
+  if (isError){
+    attach_node_val(element, message);
+  }
 }
