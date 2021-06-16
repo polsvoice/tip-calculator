@@ -26,7 +26,7 @@ function val_to_currency(value){
 }
 
 function attach_node_val(element, value){
-  const new_text = document.createTextNode(val_to_currency(value));  
+  const new_text = document.createTextNode(value);  
 
   // If text node is already there, delete it
   if (element.textContent){
