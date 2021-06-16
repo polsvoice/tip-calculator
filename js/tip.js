@@ -8,8 +8,9 @@ function round_to_cents(num){
 
 function tip_amount(bill, tip){
   const tip_amt = tip_calc(tip);
-  const tip_decimal = (bill * tip_amt);
-  return round_to_cents(tip_decimal);
+  const tip_decimal = round_to_cents(bill * tip_amt);
+  const tip_currency = tip_decimal.toLocaleString('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2});
+  return tip_currency;
 }
 
 function total(num1, num2){
@@ -21,10 +22,12 @@ function val_field(field){
   return parseFloat(field.value) || parseFloat(field.placeholder);
 }
 
+function val_to_currency(value){
+  return value.toLocaleString('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 2});
+}
+
 function attach_node_val(element, value){
-  // Pad with zeroes
-  const val_to_currency = value.toLocaleString('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2});
-  const new_text = document.createTextNode(val_to_currency);  
+  const new_text = document.createTextNode(val_to_currency(value));  
 
   // If text node is already there, delete it
   if (element.textContent){
