@@ -13,7 +13,7 @@ describe('Tip Calculator', function(){
     expect(tip_amount(3.57, 15)).toEqual('$0.54');
     expect(tip_amount(17.26, 22)).toEqual('$3.80');
   });
-  xit('computes the total amount', function(){
+  it('computes the total amount', function(){
     expect(total(10.23, 4.56)).toEqual('$14.79');
     expect(total(0.66, .11)).toEqual('$0.77');
   });
@@ -53,7 +53,10 @@ describe('Tip Calculator Output', function(){
   });
   it('converts to currency', function(){
     expect(val_to_currency(5.36)).toEqual('$5.36');
-  });
+    expect(val_to_currency(0.1)).toEqual('$0.10');
+    expect(val_to_currency(.5)).toEqual('$0.50');
+    expect(val_to_currency(100)).toEqual('$100.00');
+  })
 });
 
 describe('Form Validation', function(){

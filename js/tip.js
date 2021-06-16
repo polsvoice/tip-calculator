@@ -9,12 +9,11 @@ function round_to_cents(num){
 function tip_amount(bill, tip){
   const tip_amt = tip_calc(tip);
   const tip_decimal = round_to_cents(bill * tip_amt);
-  const tip_currency = tip_decimal.toLocaleString('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2});
-  return tip_currency;
+  return val_to_currency(tip_decimal);
 }
 
 function total(num1, num2){
-  return num1 + num2;
+  return val_to_currency(num1 + num2);
 }
 
 // Get tip amount from field
