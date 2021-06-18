@@ -88,4 +88,9 @@ describe('Form Validation', function(){
     warning_message(true, warning_output);
     expect(warning_output.textContent).toEqual('Error! Please enter a numeric value');
   });
+
+  it('returns error message for invalid input', function(){
+    tip_amount('asthousth');
+    expect(warning_output.textContent).toEqual('Error! Please enter a numeric value');
+  });
 });
