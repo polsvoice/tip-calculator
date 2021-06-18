@@ -37,5 +37,5 @@ function attach_node_val(element, value){
 function isValid(element){
   // convert string into number. If it's a non-numeric string,
   // it'll return 0
-  return Number(element.value) ? true : false;
+  return Number(element.value);
 }
