@@ -8,12 +8,12 @@ function round_to_cents(num){
 
 function tip_amount(bill, tip){
   const tip_amt = tip_calc(tip);
-  const tip_decimal = (bill * tip_amt);
-  return round_to_cents(tip_decimal);
+  const tip_decimal = round_to_cents(bill * tip_amt);
+  return val_to_currency(tip_decimal);
 }
 
 function total(num1, num2){
-  return num1 + num2;
+  return val_to_currency(num1 + num2);
 }
 
 // Get tip amount from field
@@ -21,10 +21,18 @@ function val_field(field){
   return parseFloat(field.value) || parseFloat(field.placeholder);
 }
 
+function val_to_currency(value){
+  return value.toLocaleString('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 2});
+}
+
+function isValid(element){
+  // convert string into number. If it's a non-numeric string,
+  // it'll return 0
+  return Number(element.value) ? true : false;
+}
+
 function attach_node_val(element, value){
-  // Pad with zeroes
-  const val_to_currency = value.toLocaleString('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2});
-  const new_text = document.createTextNode(val_to_currency);  
+  const new_text = document.createTextNode(value);  
 
   // If text node is already there, delete it
   if (element.textContent){
@@ -38,4 +46,10 @@ function isValid(element){
   // convert string into number. If it's a non-numeric string,
   // it'll return 0
   return Number(element.value);
+}
+
+function warning_message(isError, element, message = 'Error! Please enter a numeric value'){
+  if (isError){
+    attach_node_val(element, message);
+  }
 }
