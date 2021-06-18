@@ -1,4 +1,5 @@
 (function(){
+  "use strict";
   const submit_button = document.querySelector("#calculate")
         , bill = document.querySelector("#bill")
         , tip = document.querySelector("#tip")
