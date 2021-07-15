@@ -3,8 +3,8 @@ export function createTipCalculator(spec) {
     setTip = function(num) {
       tip = num;
     },
-    convertToDec = function(num) {
-      return num/100;
+    convertToDec = function() {
+      return tip/100;
     }
 
   return Object.freeze(
