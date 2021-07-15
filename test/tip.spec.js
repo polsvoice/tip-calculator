@@ -9,10 +9,13 @@ describe("Tip Calculator", function(){
     tipCalculator.setTip(5);
     expect(tipCalculator.convertToDec()).toEqual(.05);
   });
-  xit("rounds to two decimal places", function(){
-    expect(round_to_cents(1.2345)).toEqual(1.23);
-    expect(round_to_cents(1.77777777)).toEqual(1.78);
-    expect(round_to_cents(57.6100051)).toEqual(57.61);
+  it("rounds to two decimal places", function(){
+    tipCalculator.setBill(1.2345);
+    expect(tipCalculator.roundToCents()).toEqual(1.23);
+    tipCalculator.setBill(1.77777777);
+    expect(tipCalculator.roundToCents()).toEqual(1.78);
+    tipCalculator.setBill(57.6100051);
+    expect(tipCalculator.roundToCents()).toEqual(57.61);
   
   });
   xit("computes the tip amount", function(){
