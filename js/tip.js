@@ -1,4 +1,18 @@
-function tip_calc(num){
+export function createTipCalculator(spec) {
+  let {bill, tip} = spec,
+    setTip = function(num) {
+      tip = num;
+    },
+    convertToDec = function(num) {
+      return num/100;
+    }
+
+  return Object.freeze(
+    {setTip, convertToDec}
+  );
+}
+
+/* function tip_calc(num){
   return num/100;
 }
 
@@ -54,4 +68,4 @@ function warning_message(isError, element, message = "Error! Please enter a nume
   }
 }
 
-
+ */

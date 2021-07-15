@@ -1,7 +1,12 @@
+import {createTipCalculator} from "../js/tip.js";
+
+const tipCalculator = createTipCalculator(0, 0);
+
 describe("Tip Calculator", function(){
-  xit("converts the tip percentage to decimal", function(){
-    expect(tip_calc(15)).toEqual(.15);
-    expect(tip_calc(5)).toEqual(.05);
+  it("converts the tip percentage to decimal", function(){
+    tipCalculator.setTip(15);
+    expect(tipCalculator.convertToDec(15)).toEqual(.15);
+    expect(tipCalculator.convertToDec(5)).toEqual(.05);
   });
   xit("rounds to two decimal places", function(){
     expect(round_to_cents(1.2345)).toEqual(1.23);

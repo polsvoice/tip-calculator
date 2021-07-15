@@ -1,6 +1,6 @@
 (function(){
   "use strict";
-  const submit_button = document.querySelector("#calculate")
+/*   const submit_button = document.querySelector("#calculate")
         , bill = document.querySelector("#bill")
         , tip = document.querySelector("#tip")
         , tip_amount_output = document.querySelector("#tip-amount")
@@ -13,6 +13,6 @@
     const bill_total = total(bill_amt, tip_total);
     
     attach_node_val(tip_amount_output, tip_total);
-    attach_node_val(total_output, bill_total);
+    attach_node_val(total_output, bill_total); */
   });
 })();
