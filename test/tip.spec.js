@@ -10,17 +10,18 @@ describe("Tip Calculator", function(){
     expect(tipCalculator.convertToDec()).toEqual(.05);
   });
   it("rounds to two decimal places", function(){
-    tipCalculator.setBill(1.2345);
-    expect(tipCalculator.roundToCents()).toEqual(1.23);
-    tipCalculator.setBill(1.77777777);
-    expect(tipCalculator.roundToCents()).toEqual(1.78);
-    tipCalculator.setBill(57.6100051);
-    expect(tipCalculator.roundToCents()).toEqual(57.61);
+    expect(tipCalculator.roundToCents(1.2345)).toEqual(1.23);
+    expect(tipCalculator.roundToCents(1.77777777)).toEqual(1.78);
+    expect(tipCalculator.roundToCents(57.6100051)).toEqual(57.61);
   
   });
-  xit("computes the tip amount", function(){
-    expect(tip_amount(3.57, 15)).toEqual("$0.54");
-    expect(tip_amount(17.26, 22)).toEqual("$3.80");
+  it("computes the tip amount", function(){
+    tipCalculator.setBill(3.57);
+    tipCalculator.setTip(15);
+    expect(tipCalculator.tipAmount()).toEqual("$0.54");
+    tipCalculator.setBill(17.26);
+    tipCalculator.setTip(22);
+    expect(tipCalculator.tipAmount()).toEqual("$3.80");
   });
   xit("computes the total amount", function(){
     expect(total(10.23, 4.56)).toEqual("$14.79");

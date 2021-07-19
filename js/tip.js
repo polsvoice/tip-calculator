@@ -9,23 +9,31 @@ export function createTipCalculator(spec) {
     convertToDec = function() {
       return tip/100;
     },
-    roundToCents = function(){
-      return Math.round((bill + Number.EPSILON) * 100) / 100;
+    roundToCents = function(num) {
+      return Math.round((num + Number.EPSILON) * 100) / 100;
+    },
+    tipAmount = function() {
+      const tipAmount = convertToDec();
+      const tipDecimal = roundToCents(bill * tipAmount);
+      return valToCurrency(tipDecimal);
+    },
+    valToCurrency = function(value) {
+      return value.toLocaleString('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 2});
     }
 
-  return Object.freeze(
-    {setBill, setTip, convertToDec, roundToCents}
-  );
+  return Object.freeze({
+      setBill, 
+      setTip, 
+      convertToDec, 
+      roundToCents,
+      tipAmount
+    });
 }
 
 /*
 
 
-function tip_amount(bill, tip){
-  const tip_amt = tip_calc(tip);
-  const tip_decimal = round_to_cents(bill * tip_amt);
-  return val_to_currency(tip_decimal);
-}
+
 
 function total(num1, num2){
   return val_to_currency(num1 + num2);
@@ -36,9 +44,7 @@ function val_field(field){
   return parseFloat(field.value) || parseFloat(field.placeholder);
 }
 
-function val_to_currency(value){
-  return value.toLocaleString('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 2});
-}
+
 
 function isValid(element){
   // convert string into number. If it's a non-numeric string,
