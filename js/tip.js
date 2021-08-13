@@ -42,6 +42,12 @@ export function createTipCalculator(spec) {
       // Convert string into number. If it's a non-numeric string,
       // it'll return 0
       return Number(element.value) ? true : false;
+    },
+    warningMessage = function(isError, element, 
+      message = "Error! Please enter a numeric value"){
+        if (isError){
+          attachNodeVal(element, message);
+        }
     }
 
   return Object.freeze({
@@ -62,16 +68,6 @@ export function createTipCalculator(spec) {
 
 
 
-function isValid(element){
-  // convert string into number. If it's a non-numeric string,
-  // it'll return 0
-  return Number(element.value) ? true : false;
-}
 
-function warning_message(isError, element, message = "Error! Please enter a numeric value"){
-  if (isError){
-    attach_node_val(element, message);
-  }
-}
 
  */

@@ -94,9 +94,9 @@ describe("Form Validation", function(){
     expect(tipCalculator.isValid(dummyInput)).toBe(true);
   });
 
-  xit("returns error message", function(){
-    warning_message(true, warning_output);
-    expect(warning_output.textContent).toEqual("Error! Please enter a numeric value");
+  it("returns error message", function(){
+    warning_message(true, tipCalculator.warningOutput);
+    expect(tipCalculator.warningOutput.textContent).toEqual("Error! Please enter a numeric value");
   });
 
   xit("returns error message for invalid input", function(){
