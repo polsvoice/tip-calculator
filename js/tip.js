@@ -26,6 +26,16 @@ export function createTipCalculator(spec) {
     // Get tip amount from field
     valField = function(field){
       return parseFloat(field.value) || parseFloat(field.placeholder);
+    },
+    attachNodeVal = function(element, value){
+      const newText = document.createTextNode(value);  
+    
+      // If text node is already there, delete it
+      if (element.textContent){
+        element.removeChild(element.childNodes[0]);
+      }
+      element.appendChild(newText);
+      return element;
     }
 
   return Object.freeze({
@@ -35,35 +45,19 @@ export function createTipCalculator(spec) {
       roundToCents,
       tipAmount,
       total,
-      valField
+      valField,
+      attachNodeVal
     });
 }
 
 /*
-
-// Get tip amount from field
-function val_field(field){
-  return parseFloat(field.value) || parseFloat(field.placeholder);
-}
-
-
-
 function isValid(element){
   // convert string into number. If it's a non-numeric string,
   // it'll return 0
   return Number(element.value) ? true : false;
 }
 
-function attach_node_val(element, value){
-  const new_text = document.createTextNode(value);  
 
-  // If text node is already there, delete it
-  if (element.textContent){
-    element.removeChild(element.childNodes[0]);
-  }
-  element.appendChild(new_text);
-  return element;
-}
 
 function isValid(element){
   // convert string into number. If it's a non-numeric string,

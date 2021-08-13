@@ -53,8 +53,8 @@ describe("Tip Calculator Input", function(){
 describe("Tip Calculator Output", function(){
   let label = document.createElement("span");
 
-  xit("attaches text output", function(){
-    attach_node_val(label, "$6.55");
+  it("attaches text output", function(){
+    tipCalculator.attachNodeVal(label, "$6.55");
     expect(label.textContent).toEqual("$6.55");
   });
   xit("flushes prior text output", function(){
