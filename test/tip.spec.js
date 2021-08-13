@@ -94,6 +94,16 @@ describe("Form Validation", function(){
     expect(tipCalculator.isValid(dummyInput)).toBe(true);
   });
 
+  it("rejects undefined", function() {
+    dummyInput.value = undefined;
+    expect(tipCalculator.isValid(dummyInput)).toBe(false);
+  });
+
+  it("rejects NaN", function() {
+    dummyInput.value = NaN;
+    expect(tipCalculator.isValid(dummyInput)).toBe(false);
+  });
+
   xit("returns error message", function(){
     warning_message(true, warning_output);
     expect(warning_output.textContent).toEqual("Error! Please enter a numeric value");
