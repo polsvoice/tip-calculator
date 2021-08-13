@@ -19,6 +19,9 @@ export function createTipCalculator(spec) {
     },
     valToCurrency = function(value) {
       return value.toLocaleString('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 2});
+    },
+    total = function(num1, num2){
+      return valToCurrency(num1 + num2);
     }
 
   return Object.freeze({
@@ -26,7 +29,8 @@ export function createTipCalculator(spec) {
       setTip, 
       convertToDec, 
       roundToCents,
-      tipAmount
+      tipAmount,
+      total
     });
 }
 

@@ -23,9 +23,9 @@ describe("Tip Calculator", function(){
     tipCalculator.setTip(22);
     expect(tipCalculator.tipAmount()).toEqual("$3.80");
   });
-  xit("computes the total amount", function(){
-    expect(total(10.23, 4.56)).toEqual("$14.79");
-    expect(total(0.66, .11)).toEqual("$0.77");
+  it("computes the total amount", function(){
+    expect(tipCalculator.total(10.23, 4.56)).toEqual("$14.79");
+    expect(tipCalculator.total(0.66, .11)).toEqual("$0.77");
   });
 });
 
