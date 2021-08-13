@@ -70,28 +70,28 @@ describe("Tip Calculator Output", function(){
 });
 
 describe("Form Validation", function(){
-  let dummy_input = document.createElement("input")
-    , warning_output = document.createElement("span");
-  dummy_input.type = "number";
+  let dummyInput = document.createElement("input"),
+      warningOutput = document.createElement("span");
+  dummyInput.type = "number";
 
-  xit("rejects letters", function(){
-    dummy_input.value = "AbCdE";
-    expect(isValid(dummy_input)).toBe(false);
+  it("rejects letters", function(){
+    dummyInput.value = "AbCdE";
+    expect(tipCalculator.isValid(dummyInput)).toBe(false);
   });
 
-  xit("rejects non-numeric characters", function(){
-    dummy_input.value = "\+/{}";
-    expect(isValid(dummy_input)).toBe(false);
+  it("rejects non-numeric characters", function(){
+    dummyInput.value = "\+/{}";
+    expect(tipCalculator.isValid(dummyInput)).toBe(false);
   });
 
-  xit("accepts floating-point numbers", function(){
-    dummy_input.value = 5.35;
-    expect(isValid(dummy_input)).toBe(true);
+  it("accepts floating-point numbers", function(){
+    dummyInput.value = 5.35;
+    expect(tipCalculator.isValid(dummyInput)).toBe(true);
   });
 
-  xit("accepts numbers as strings", function(){
-    dummy_input.value = "5.35";
-    expect(isValid(dummy_input)).toBe(true);
+  it("accepts numbers as strings", function(){
+    dummyInput.value = "5.35";
+    expect(tipCalculator.isValid(dummyInput)).toBe(true);
   });
 
   xit("returns error message", function(){

@@ -37,6 +37,11 @@ export function createTipCalculator(spec) {
       }
       element.appendChild(newText);
       return element;
+    },
+    isValid = function(element){
+      // Convert string into number. If it's a non-numeric string,
+      // it'll return 0
+      return Number(element.value) ? true : false;
     }
 
   return Object.freeze({
@@ -47,16 +52,13 @@ export function createTipCalculator(spec) {
       tipAmount,
       total,
       valField,
-      attachNodeVal
+      attachNodeVal,
+      isValid
     });
 }
 
 /*
-function isValid(element){
-  // convert string into number. If it's a non-numeric string,
-  // it'll return 0
-  return Number(element.value) ? true : false;
-}
+
 
 
 
