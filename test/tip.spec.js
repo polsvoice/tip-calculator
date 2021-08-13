@@ -62,7 +62,6 @@ describe("Tip Calculator Output", function(){
     expect(label.textContent).toEqual("$5.03");
   });
   it("converts to currency", function(){
-    
     expect(tipCalculator.attachNodeVal(label, 5.36).textContent).toEqual("$5.36");
     expect(tipCalculator.attachNodeVal(label, 0.1).textContent).toEqual("$0.10");
     expect(tipCalculator.attachNodeVal(label, .5).textContent).toEqual("$0.50");
