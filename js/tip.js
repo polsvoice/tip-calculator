@@ -28,7 +28,8 @@ export function createTipCalculator(spec) {
       return parseFloat(field.value) || parseFloat(field.placeholder);
     },
     attachNodeVal = function(element, value){
-      const newText = document.createTextNode(value);  
+      const valCurrency = valToCurrency(value);
+      const newText = document.createTextNode(valCurrency);  
     
       // If text node is already there, delete it
       if (element.textContent){

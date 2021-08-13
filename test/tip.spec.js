@@ -57,15 +57,16 @@ describe("Tip Calculator Output", function(){
     tipCalculator.attachNodeVal(label, "$6.55");
     expect(label.textContent).toEqual("$6.55");
   });
-  xit("flushes prior text output", function(){
-    attach_node_val(label, "$5.03");
+  it("flushes prior text output", function(){
+    tipCalculator.attachNodeVal(label, "$5.03");
     expect(label.textContent).toEqual("$5.03");
   });
-  xit("converts to currency", function(){
-    expect(val_to_currency(5.36)).toEqual("$5.36");
-    expect(val_to_currency(0.1)).toEqual("$0.10");
-    expect(val_to_currency(.5)).toEqual("$0.50");
-    expect(val_to_currency(100)).toEqual("$100.00");
+  it("converts to currency", function(){
+    
+    expect(tipCalculator.attachNodeVal(label, 5.36).textContent).toEqual("$5.36");
+    expect(tipCalculator.attachNodeVal(label, 0.1).textContent).toEqual("$0.10");
+    expect(tipCalculator.attachNodeVal(label, .5).textContent).toEqual("$0.50");
+    expect(tipCalculator.attachNodeVal(label, 100).textContent).toEqual("$100.00");
   })
 });
 
