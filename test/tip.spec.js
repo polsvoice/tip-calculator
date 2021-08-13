@@ -40,13 +40,13 @@ describe("Tip Calculator Input", function(){
   it("retrieves the placeholder value", function(){
     expect(tipCalculator.valField(field)).toEqual(15);
   });
-  xit("retrieves a custom value", function(){
+  it("retrieves a custom value", function(){
     field.value = 20;
-    expect(val_field(field)).toEqual(20);
+    expect(tipCalculator.valField(field)).toEqual(20);
   });
-  xit("retrieves a floating point number", function(){
+  it("retrieves a floating point number", function(){
     field.value = 17.25;
-    expect(val_field(field)).toEqual(17.25);
+    expect(tipCalculator.valField(field)).toEqual(17.25);
   });
 });
 
