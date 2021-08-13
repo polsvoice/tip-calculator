@@ -37,8 +37,8 @@ describe("Tip Calculator Input", function(){
     field.value = undefined;
   });
   
-  xit("retrieves the placeholder value", function(){
-    expect(val_field(field)).toEqual(15);
+  it("retrieves the placeholder value", function(){
+    expect(tipCalculator.valField(field)).toEqual(15);
   });
   xit("retrieves a custom value", function(){
     field.value = 20;

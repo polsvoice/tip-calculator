@@ -22,6 +22,10 @@ export function createTipCalculator(spec) {
     },
     total = function(num1, num2){
       return valToCurrency(num1 + num2);
+    },
+    // Get tip amount from field
+    valField = function(field){
+      return parseFloat(field.value) || parseFloat(field.placeholder);
     }
 
   return Object.freeze({
@@ -30,18 +34,12 @@ export function createTipCalculator(spec) {
       convertToDec, 
       roundToCents,
       tipAmount,
-      total
+      total,
+      valField
     });
 }
 
 /*
-
-
-
-
-function total(num1, num2){
-  return val_to_currency(num1 + num2);
-}
 
 // Get tip amount from field
 function val_field(field){
