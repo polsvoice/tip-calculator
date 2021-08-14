@@ -103,14 +103,14 @@ describe("Form Validation", function(){
     dummyInput.value = NaN;
     expect(tipCalculator.isValid(dummyInput)).toBe(false);
   });
-
-  xit("returns error message", function(){
-    warning_message(true, warning_output);
-    expect(warning_output.textContent).toEqual("Error! Please enter a numeric value");
+  it("returns error message", function(){
+    tipCalculator.warningMessage(true, warningOutput);
+    expect(warningOutput.textContent).toEqual("Error! Please enter a numeric value");
   });
 
-  xit("returns error message for invalid input", function(){
-    dummy_input.value = "asthousth";
-    expect(warning_output.textContent).toEqual("Error! Please enter a numeric value");
+  it("returns error message for invalid input", function(){
+    dummyInput.value = "asthousth";
+    tipCalculator.warningMessage(tipCalculator.isValid(dummyInput.value), warningOutput);
+    expect(warningOutput.textContent).toEqual("Error! Please enter a numeric value");
   });
 });
