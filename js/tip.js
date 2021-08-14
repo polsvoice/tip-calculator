@@ -20,14 +20,14 @@ export function createTipCalculator(spec) {
     valToCurrency = function(value) {
       return value.toLocaleString('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 2});
     },
-    total = function(num1, num2){
+    total = function(num1, num2) {
       return valToCurrency(num1 + num2);
     },
     // Get tip amount from field
-    valField = function(field){
+    valField = function(field) {
       return parseFloat(field.value) || parseFloat(field.placeholder);
     },
-    attachNodeVal = function(element, value){
+    attachNodeVal = function(element, value) {
       const valCurrency = valToCurrency(value);
       const newText = document.createTextNode(valCurrency);  
     
@@ -38,13 +38,13 @@ export function createTipCalculator(spec) {
       element.appendChild(newText);
       return element;
     },
-    isValid = function(element){
+    isValid = function(element) {
       // Convert string into number. If it's a non-numeric string,
       // it'll return 0
       return Number(element.value) ? true : false;
     },
     warningMessage = function(isError, element, 
-      message = "Error! Please enter a numeric value"){
+      message = "Error! Please enter a numeric value") {
         if (isError){
           attachNodeVal(element, message);
         }
@@ -59,7 +59,8 @@ export function createTipCalculator(spec) {
       total,
       valField,
       attachNodeVal,
-      isValid
+      isValid,
+      warningMessage
     });
 }
 

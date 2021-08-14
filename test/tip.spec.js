@@ -95,12 +95,13 @@ describe("Form Validation", function(){
   });
 
   it("returns error message", function(){
-    warning_message(true, tipCalculator.warningOutput);
-    expect(tipCalculator.warningOutput.textContent).toEqual("Error! Please enter a numeric value");
+    tipCalculator.warningMessage(true, warningOutput);
+    expect(warningOutput.textContent).toEqual("Error! Please enter a numeric value");
   });
 
-  xit("returns error message for invalid input", function(){
-    dummy_input.value = "asthousth";
-    expect(warning_output.textContent).toEqual("Error! Please enter a numeric value");
+  it("returns error message for invalid input", function(){
+    dummyInput.value = "asthousth";
+    tipCalculator.warningMessage(tipCalculator.isValid(dummyInput.value), warningOutput);
+    expect(warningOutput.textContent).toEqual("Error! Please enter a numeric value");
   });
 });
