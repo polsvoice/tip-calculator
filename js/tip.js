@@ -47,6 +47,7 @@ export function createTipCalculator(spec) {
       message = "Error! Please enter a numeric value") {
         if (isError){
           attachNodeVal(element, message);
+          return element;
         }
     }
 
@@ -63,12 +64,3 @@ export function createTipCalculator(spec) {
       warningMessage
     });
 }
-
-/*
-
-
-
-
-
-
- */

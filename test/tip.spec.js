@@ -107,10 +107,4 @@ describe("Form Validation", function(){
     tipCalculator.warningMessage(true, warningOutput);
     expect(warningOutput.textContent).toEqual("Error! Please enter a numeric value");
   });
-
-  it("returns error message for invalid input", function(){
-    dummyInput.value = "asthousth";
-    tipCalculator.warningMessage(tipCalculator.isValid(dummyInput.value), warningOutput);
-    expect(warningOutput.textContent).toEqual("Error! Please enter a numeric value");
-  });
 });
