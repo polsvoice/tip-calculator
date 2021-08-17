@@ -1,6 +1,6 @@
 import {createTipCalculator} from "../js/tip.js";
 
-const tipCalculator = createTipCalculator(0, 0);
+const tipCalculator = createTipCalculator({bill: 0, tip: 0});
 
 describe("Tip Calculator", function(){
   it("converts the tip percentage to decimal", function(){
