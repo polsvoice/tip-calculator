@@ -3,12 +3,6 @@ import {createTipCalculator} from "../js/tip.js";
 const tipCalculator = createTipCalculator({bill: 0, tip: 0});
 
 describe("Tip Calculator", function(){
-  it("converts the tip percentage to decimal", function(){
-    tipCalculator.setTip(15);
-    expect(tipCalculator.convertToDec()).toEqual(.15);
-    tipCalculator.setTip(5);
-    expect(tipCalculator.convertToDec()).toEqual(.05);
-  });
   it("rounds to two decimal places", function(){
     expect(tipCalculator.roundToCents(1.2345)).toEqual(1.23);
     expect(tipCalculator.roundToCents(1.77777777)).toEqual(1.78);

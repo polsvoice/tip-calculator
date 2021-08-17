@@ -4,17 +4,13 @@ export function createTipCalculator(spec) {
       bill = num;
     },
     setTip = function(num) {
-      tip = num;
-    },
-    convertToDec = function() {
-      return tip/100;
+      tip = num/100;
     },
     roundToCents = function(num) {
       return Math.round((num + Number.EPSILON) * 100) / 100;
     },
     tipAmount = function() {
-      const tipAmount = convertToDec();
-      const tipDecimal = roundToCents(bill * tipAmount);
+      const tipDecimal = roundToCents(bill * tip);
       return valToCurrency(tipDecimal);
     },
     valToCurrency = function(value) {
@@ -53,8 +49,7 @@ export function createTipCalculator(spec) {
 
   return Object.freeze({
       setBill, 
-      setTip, 
-      convertToDec, 
+      setTip,
       roundToCents,
       tipAmount,
       total,
