@@ -94,6 +94,7 @@ describe("Form Validation", function(){
     expect(tipCalculator.isValid(dummyInput)).toBe(true);
   });
 
+<<<<<<< HEAD
   it("rejects undefined", function() {
     dummyInput.value = undefined;
     expect(tipCalculator.isValid(dummyInput)).toBe(false);
@@ -103,6 +104,8 @@ describe("Form Validation", function(){
     dummyInput.value = NaN;
     expect(tipCalculator.isValid(dummyInput)).toBe(false);
   });
+=======
+>>>>>>> warning-output
   it("returns error message", function(){
     tipCalculator.warningMessage(true, warningOutput);
     expect(warningOutput.textContent).toEqual("Error! Please enter a numeric value");
