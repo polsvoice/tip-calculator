@@ -1,18 +1,24 @@
+import {createTipCalculator} from "../js/tip.js";
+
 (function(){
   "use strict";
-/*   const submit_button = document.querySelector("#calculate")
+  const tipCalculator = createTipCalculator({bill: 0, tip: 0});
+  const submitButton = document.querySelector("#calculate")
         , bill = document.querySelector("#bill")
         , tip = document.querySelector("#tip")
-        , tip_amount_output = document.querySelector("#tip-amount")
-        , total_output = document.querySelector("#total");
+        , tipAmountOutput = document.querySelector("#tip-amount")
+        , totalOutput = document.querySelector("#total");
         
-  submit_button.addEventListener("click", function(){
-    const bill_amt = val_field(bill);
-    const tip_amt = val_field(tip);
-    const tip_total = tip_amount(bill_amt, tip_amt);
-    const bill_total = total(bill_amt, tip_total);
-    
-    attach_node_val(tip_amount_output, tip_total);
-    attach_node_val(total_output, bill_total); */
+  submitButton.addEventListener("click", function(){
+    const billAmt = tipCalculator.valField(bill);
+    const tipAmt = tipCalculator.valField(tip);
+    const tipTotal = tipCalculator.tipAmount();
+    const billTotal = tipCalculator.total(billAmt, tipTotal);
+    console.log(`billAmt: ${billAmt}`);
+    console.log(`tipAmt: ${tipAmt}`);
+    console.log(`tipTotal: ${tipTotal}`);
+    console.log(`billTotal: ${billTotal}`);
+    tipCalculator.attachNodeVal(tipAmountOutput, tipTotal);
+    tipCalculator.attachNodeVal(totalOutput, billTotal);
   });
 })();
