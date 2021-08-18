@@ -19,10 +19,10 @@ import {createTipCalculator} from "../js/tip.js";
     const tipTotal = tipCalculator.tipAmount();
     const billTotal = tipCalculator.total();
 
-    console.log(`billAmt: ${billAmt}`);
+/*     console.log(`billAmt: ${billAmt}`);
     console.log(`tipAmt: ${tipAmt}`);
     console.log(`tipTotal: ${tipTotal}`);
-    console.log(`billTotal: ${billTotal}`);
+    console.log(`billTotal: ${billTotal}`); */
     tipCalculator.attachNodeVal(tipAmountOutput, tipTotal);
     tipCalculator.attachNodeVal(totalOutput, billTotal);
   });
