@@ -18,8 +18,12 @@ describe("Tip Calculator", function(){
     expect(tipCalculator.tipAmount()).toEqual("$3.80");
   });
   it("computes the total amount", function(){
-    expect(tipCalculator.total(10.23, 4.56)).toEqual("$14.79");
-    expect(tipCalculator.total(0.66, .11)).toEqual("$0.77");
+    tipCalculator.setBill(10.23);
+    tipCalculator.setTip(12);
+    expect(tipCalculator.total()).toEqual("$11.46");
+    tipCalculator.setBill(0.66);
+    tipCalculator.setTip(25);
+    expect(tipCalculator.total()).toEqual("$0.83");
   });
 });
 

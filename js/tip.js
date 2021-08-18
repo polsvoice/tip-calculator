@@ -9,15 +9,19 @@ export function createTipCalculator(spec) {
     roundToCents = function(num) {
       return Math.round((num + Number.EPSILON) * 100) / 100;
     },
+    tipDecimal = function() {
+      const tipDec = roundToCents(bill * tip);
+      return tipDec;
+    },
     tipAmount = function() {
-      const tipDecimal = roundToCents(bill * tip);
-      return valToCurrency(tipDecimal);
+      return valToCurrency(tipDecimal());
     },
     valToCurrency = function(value) {
       return value.toLocaleString('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 2});
     },
-    total = function(num1, num2) {
-      return valToCurrency(num1 + num2);
+    total = function() {
+      const tipToDec = tipDecimal();
+      return valToCurrency(bill + tipToDec);
     },
     // Get tip amount from field
     valField = function(field) {
