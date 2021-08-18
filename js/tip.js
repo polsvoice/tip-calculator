@@ -6,6 +6,12 @@ export function createTipCalculator(spec) {
     setTip = function(num) {
       tip = num/100;
     },
+    getBill = function() {
+      return bill;
+    },
+    getTip = function() {
+      return tip;
+    },
     roundToCents = function(num) {
       return Math.round((num + Number.EPSILON) * 100) / 100;
     },
@@ -54,6 +60,8 @@ export function createTipCalculator(spec) {
   return Object.freeze({
       setBill, 
       setTip,
+      getBill,
+      getTip,
       roundToCents,
       tipAmount,
       total,
