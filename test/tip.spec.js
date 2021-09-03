@@ -68,41 +68,40 @@ describe("Tip Calculator Output", function(){
 });
 
 describe("Form Validation", function(){
-  let dummyInput = document.createElement("input"),
+  let dummyInput,
       warningOutput = document.createElement("span");
-  dummyInput.type = "number";
 
   it("rejects letters", function(){
-    dummyInput.value = "AbCdE";
+    dummyInput = "AbCdE";
     expect(tipCalculator.isValid(dummyInput)).toBe(false);
   });
 
   it("rejects non-numeric characters", function(){
-    dummyInput.value = "\+/{}";
+    dummyInput = "\+/{}";
     expect(tipCalculator.isValid(dummyInput)).toBe(false);
   });
 
   it("accepts floating-point numbers", function(){
-    dummyInput.value = 5.35;
+    dummyInput = 5.35;
     expect(tipCalculator.isValid(dummyInput)).toBe(true);
   });
 
   it("accepts numbers as strings", function(){
-    dummyInput.value = "5.35";
+    dummyInput = "5.35";
     expect(tipCalculator.isValid(dummyInput)).toBe(true);
   });
 
   it("rejects undefined", function() {
-    dummyInput.value = undefined;
+    dummyInput = undefined;
     expect(tipCalculator.isValid(dummyInput)).toBe(false);
   });
 
   it("rejects NaN", function() {
-    dummyInput.value = NaN;
+    dummyInput = NaN;
     expect(tipCalculator.isValid(dummyInput)).toBe(false);
   });
   it("returns error message", function(){
-    tipCalculator.warningMessage(true, warningOutput);
+    tipCalculator.warningMessage(warningOutput);
     expect(warningOutput.textContent).toEqual("Error! Please enter a numeric value");
   });
 });

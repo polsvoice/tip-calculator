@@ -44,17 +44,15 @@ export function createTipCalculator(spec) {
       element.appendChild(newText);
       return element;
     },
-    isValid = function(element) {
+    isValid = function(value) {
       // Convert string into number. If it's a non-numeric string,
       // it'll return 0
-      return Number(element.value) ? true : false;
+      return Number(value) ? true : false;
     },
-    warningMessage = function(isError, element, 
+    warningMessage = function(element, 
       message = "Error! Please enter a numeric value") {
-        if (isError){
-          attachNodeVal(element, message);
-          return element;
-        }
+        attachNodeVal(element, message);
+        return element;
     }
 
   return Object.freeze({
