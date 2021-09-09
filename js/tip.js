@@ -44,6 +44,10 @@ export function createTipCalculator(spec) {
       element.appendChild(newText);
       return element;
     },
+    calculate = function(billOutput, tipAmount) {
+      attachNadeVal(billOutput, bill);
+      attachNodeVal(tipOutput, tipAmount);
+    },
     isValid = function(element) {
       // Convert string into number. If it's a non-numeric string,
       // it'll return 0
@@ -56,7 +60,7 @@ export function createTipCalculator(spec) {
           return element;
         }
     }
-    
+
   return Object.freeze({
       setBill, 
       setTip,
@@ -67,6 +71,7 @@ export function createTipCalculator(spec) {
       total,
       valField,
       attachNodeVal,
+      calculate,
       isValid,
       warningMessage
     });
