@@ -9,10 +9,8 @@ import {createTipCalculator} from "../js/tip.js";
         tipAmountOutput = document.querySelector("#tip-amount"),
         totalOutput = document.querySelector("#total");
 
-  console.log(`The bill is ${tipCalculator.getBill()}`);
   form.addEventListener("submit", function(event) {
     event.preventDefault();
-    console.log("Form submitted");
     const billAmt = tipCalculator.valField(bill);
     const tipAmt = tipCalculator.valField(tip);
     tipCalculator.setBill(billAmt);
