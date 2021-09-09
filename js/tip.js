@@ -56,7 +56,7 @@ export function createTipCalculator(spec) {
           return element;
         }
     }
-
+    
   return Object.freeze({
       setBill, 
       setTip,
