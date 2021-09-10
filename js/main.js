@@ -14,14 +14,9 @@ import {createTipCalculator} from "../js/tip.js";
     const tipAmt = tip.value || tip.placeholder;
     const tipCalculator = 
       createTipCalculator({bill: billAmt, tip: tipAmt});
-    console.log(`The value of the tip is ${tipAmt}`);
-    console.log(`The value of the bill is ${billAmt}`);
 
     const tipTotal = tipCalculator.tipDecimal();
     const billTotal = tipCalculator.total();
-
-    console.log(`The value of the tip decimal is ${tipTotal}`);
-    console.log(`The value of the bill total is ${billTotal}`);
     
     tipCalculator.attachNodeVal(tipAmountOutput, tipTotal);
     tipCalculator.attachNodeVal(totalOutput, billTotal);
