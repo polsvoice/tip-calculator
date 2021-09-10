@@ -42,7 +42,7 @@ describe("Tip Calculator Input", function(){
 
 describe("Tip Calculator Output", function(){
   let billTotal = document.createElement("span"),
-      taxTotal = document.createElement("span");
+      tipTotal = document.createElement("span");
 
   it("attaches text output", function(){
     tipCalculator.attachNodeVal(billTotal, "$6.55");
@@ -61,9 +61,9 @@ describe("Tip Calculator Output", function(){
   it("outputs the totals", function() {
     tipCalculator.setBill(7.99);
     tipCalculator.setTip(20);
-    tipCalculator.calculate(billTotal, taxTotal);
+    tipCalculator.calculate(billTotal, tipTotal);
     expect(billTotal.textContent).toEqual("$9.59");
-    expect(taxTotal.textContent).toEqual("$1.60");
+    expect(tipTotal.textContent).toEqual("$1.60");
   });
 });
 
