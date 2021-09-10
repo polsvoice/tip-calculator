@@ -4,19 +4,19 @@ export function createTipCalculator(spec) {
       bill = num;
     },
     setTip = function(num) {
-      tip = num/100;
+      tip = num;
     },
     getBill = function() {
-      return bill;
+      return parseFloat(bill);
     },
     getTip = function() {
-      return tip;
+      return Number(tip);
     },
     roundToCents = function(num) {
       return Math.round((num + Number.EPSILON) * 100) / 100;
     },
     tipDecimal = function() {
-      const tipDec = roundToCents(bill * tip);
+      const tipDec = roundToCents(getBill() * (getTip()/100));
       return tipDec;
     },
     valToCurrency = function(value) {
@@ -24,7 +24,7 @@ export function createTipCalculator(spec) {
     },
     total = function() {
       const tipToDec = tipDecimal();
-      return valToCurrency(bill + tipToDec);
+      return valToCurrency(getBill() + tipToDec);
     },
     // Get tip amount from field
     valField = function(field) {
