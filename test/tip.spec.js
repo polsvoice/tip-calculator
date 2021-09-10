@@ -9,14 +9,6 @@ describe("Tip Calculator", function(){
     expect(tipCalculator.roundToCents(57.6100051)).toEqual(57.61);
   
   });
-  it("computes the tip amount", function(){
-    tipCalculator.setBill(3.57);
-    tipCalculator.setTip(15);
-    expect(tipCalculator.tipAmount()).toEqual("$0.54");
-    tipCalculator.setBill(17.26);
-    tipCalculator.setTip(22);
-    expect(tipCalculator.tipAmount()).toEqual("$3.80");
-  });
   it("computes the total amount", function(){
     tipCalculator.setBill(10.23);
     tipCalculator.setTip(12);
@@ -49,22 +41,30 @@ describe("Tip Calculator Input", function(){
 });
 
 describe("Tip Calculator Output", function(){
-  let label = document.createElement("span");
+  let billTotal = document.createElement("span"),
+      tipTotal = document.createElement("span");
 
   it("attaches text output", function(){
-    tipCalculator.attachNodeVal(label, "$6.55");
-    expect(label.textContent).toEqual("$6.55");
+    tipCalculator.attachNodeVal(billTotal, "$6.55");
+    expect(billTotal.textContent).toEqual("$6.55");
   });
   it("flushes prior text output", function(){
-    tipCalculator.attachNodeVal(label, "$5.03");
-    expect(label.textContent).toEqual("$5.03");
+    tipCalculator.attachNodeVal(billTotal, "$5.03");
+    expect(billTotal.textContent).toEqual("$5.03");
   });
   it("converts to currency", function(){
-    expect(tipCalculator.attachNodeVal(label, 5.36).textContent).toEqual("$5.36");
-    expect(tipCalculator.attachNodeVal(label, 0.1).textContent).toEqual("$0.10");
-    expect(tipCalculator.attachNodeVal(label, .5).textContent).toEqual("$0.50");
-    expect(tipCalculator.attachNodeVal(label, 100).textContent).toEqual("$100.00");
-  })
+    expect(tipCalculator.attachNodeVal(billTotal, 5.36).textContent).toEqual("$5.36");
+    expect(tipCalculator.attachNodeVal(billTotal, 0.1).textContent).toEqual("$0.10");
+    expect(tipCalculator.attachNodeVal(billTotal, .5).textContent).toEqual("$0.50");
+    expect(tipCalculator.attachNodeVal(billTotal, 100).textContent).toEqual("$100.00");
+  });
+  it("outputs the totals", function() {
+    tipCalculator.setBill(7.99);
+    tipCalculator.setTip(20);
+    tipCalculator.calculate(billTotal, tipTotal);
+    expect(billTotal.textContent).toEqual("$9.59");
+    expect(tipTotal.textContent).toEqual("$1.60");
+  });
 });
 
 describe("Form Validation", function(){
