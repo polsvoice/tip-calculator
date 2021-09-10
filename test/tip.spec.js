@@ -62,7 +62,7 @@ describe("Tip Calculator Output", function(){
     tipCalculator.setBill(7.99);
     tipCalculator.setTip(20);
     tipCalculator.calculate(billTotal, taxTotal);
-    expect(billTotal.textContent).toEqual("$7.99");
+    expect(billTotal.textContent).toEqual("$9.59");
     expect(taxTotal.textContent).toEqual("$1.60");
   });
 });

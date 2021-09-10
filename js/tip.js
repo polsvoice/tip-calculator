@@ -41,8 +41,8 @@ export function createTipCalculator(spec) {
       element.appendChild(newText);
       return element;
     },
-    calculate = function(billOutput, tipOutput) {
-      attachNodeVal(billOutput, bill);
+    calculate = function(totalOutput, tipOutput) {
+      attachNodeVal(totalOutput, total());
       attachNodeVal(tipOutput, tipDecimal());
     },
     isValid = function(element) {
