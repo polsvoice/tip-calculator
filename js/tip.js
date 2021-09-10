@@ -42,8 +42,11 @@ export function createTipCalculator(spec) {
       return element;
     },
     calculate = function(tipOutput, totalOutput) {
-      attachNodeVal(tipOutput, tipDecimal());
-      attachNodeVal(totalOutput, total());
+      const tipTotal = tipDecimal();
+      const billTotal = total();
+      
+      attachNodeVal(tipOutput, tipTotal);
+      attachNodeVal(totalOutput, billTotal);
     },
     isValid = function(value) {
       // Convert string into number. If it's a non-numeric string,
