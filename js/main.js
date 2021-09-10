@@ -7,14 +7,21 @@ import {createTipCalculator} from "../js/tip.js";
         tip = document.querySelector("#tip"),
         tipAmountOutput = document.querySelector("#tip-amount"),
         totalOutput = document.querySelector("#total");
+  let billAmt = bill.value;
+  let tipAmt = tip.value || tip.placeholder;
+  const tipCalculator = 
+    createTipCalculator({bill: billAmt, tip: tipAmt});
 
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    const billAmt = bill.value;
-    const tipAmt = tip.value || tip.placeholder;
-    const tipCalculator = 
-      createTipCalculator({bill: billAmt, tip: tipAmt});
-    
+  document.querySelector("#bill").addEventListener("input", 
+    function() {
+      billAmt = bill.value;
+      tipCalculator.setBill(billAmt);
+      tipCalculator.calculate(tipAmountOutput, totalOutput);
+  });
+  document.querySelector("#tip").addEventListener("input", 
+   function() {
+    tipAmt = tip.value || tip.placeholder;
+    tipCalculator.setTip(tipAmt);
     tipCalculator.calculate(tipAmountOutput, totalOutput);
   });
 })();

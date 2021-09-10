@@ -2,7 +2,7 @@ import {createTipCalculator} from "../js/tip.js";
 
 const tipCalculator = createTipCalculator({bill: 0, tip: 0});
 
-describe("Tip Calculator", function(){
+describe("Tip Calculator Calculations", function(){
   it("rounds to two decimal places", function(){
     expect(tipCalculator.roundToCents(1.2345)).toEqual(1.23);
     expect(tipCalculator.roundToCents(1.77777777)).toEqual(1.78);
