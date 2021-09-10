@@ -9,14 +9,6 @@ describe("Tip Calculator", function(){
     expect(tipCalculator.roundToCents(57.6100051)).toEqual(57.61);
   
   });
-  it("computes the tip amount", function(){
-    tipCalculator.setBill(3.57);
-    tipCalculator.setTip(15);
-    expect(tipCalculator.tipAmount()).toEqual("$0.54");
-    tipCalculator.setBill(17.26);
-    tipCalculator.setTip(22);
-    expect(tipCalculator.tipAmount()).toEqual("$3.80");
-  });
   it("computes the total amount", function(){
     tipCalculator.setBill(10.23);
     tipCalculator.setTip(12);
@@ -70,7 +62,8 @@ describe("Tip Calculator Output", function(){
     tipCalculator.setBill(7.99);
     tipCalculator.setTip(20);
     tipCalculator.calculate(billTotal, taxTotal);
-    expect(billTotal.textContent).toEqual("$7.99") && expect(taxTotal.textContent).toEqual("20");
+    expect(billTotal.textContent).toEqual("$7.99");
+    expect(taxTotal.textContent).toEqual("$1.60");
   });
 });
 

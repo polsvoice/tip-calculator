@@ -19,9 +19,6 @@ export function createTipCalculator(spec) {
       const tipDec = roundToCents(bill * tip);
       return tipDec;
     },
-    tipAmount = function() {
-      return valToCurrency(tipDecimal());
-    },
     valToCurrency = function(value) {
       return value.toLocaleString('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 2});
     },
@@ -44,9 +41,9 @@ export function createTipCalculator(spec) {
       element.appendChild(newText);
       return element;
     },
-    calculate = function(billOutput, tipAmount) {
-      attachNadeVal(billOutput, bill);
-      attachNodeVal(tipOutput, tipAmount);
+    calculate = function(billOutput, tipOutput) {
+      attachNodeVal(billOutput, bill);
+      attachNodeVal(tipOutput, tipDecimal());
     },
     isValid = function(element) {
       // Convert string into number. If it's a non-numeric string,
@@ -67,7 +64,6 @@ export function createTipCalculator(spec) {
       getBill,
       getTip,
       roundToCents,
-      tipAmount,
       total,
       valField,
       attachNodeVal,
