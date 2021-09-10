@@ -64,6 +64,7 @@ export function createTipCalculator(spec) {
       getBill,
       getTip,
       roundToCents,
+      tipDecimal,
       total,
       valField,
       attachNodeVal,

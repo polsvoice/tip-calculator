@@ -16,7 +16,7 @@ import {createTipCalculator} from "../js/tip.js";
     tipCalculator.setBill(billAmt);
     tipCalculator.setTip(tipAmt);
 
-    const tipTotal = tipCalculator.tipAmount();
+    const tipTotal = tipCalculator.tipDecimal();
     const billTotal = tipCalculator.total();
 
     tipCalculator.attachNodeVal(tipAmountOutput, tipTotal);
