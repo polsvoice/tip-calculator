@@ -8,7 +8,7 @@ import {createTipCalculator} from "../js/tip.js";
         tip = document.querySelector("#tip"),
         tipAmountOutput = document.querySelector("#tip-amount"),
         totalOutput = document.querySelector("#total");
-
+  console.log(`The value of tip is ${tip.value}`)}
   form.addEventListener("submit", function(event) {
     event.preventDefault();
     const billAmt = tipCalculator.valField(bill);
