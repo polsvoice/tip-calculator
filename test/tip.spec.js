@@ -81,6 +81,7 @@ describe("Form Validation", function() {
   });
   it("returns error message", function() {
     tipCalculator.warningMessage(warningOutput);
-    expect(warningOutput.textContent).toEqual("Error! Please enter a numeric value");
+    expect(warningOutput.textContent).
+      toEqual("Error! Please enter a numeric value");
   });
 });
