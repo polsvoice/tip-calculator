@@ -19,27 +19,6 @@ describe("Tip Calculator", function(){
   });
 });
 
-describe("Tip Calculator Input", function(){
-  let field = document.createElement("input");
-  field.placeholder = 15;
-  
-  beforeEach(function(){
-    field.value = undefined;
-  });
-  
-  it("retrieves the placeholder value", function(){
-    expect(tipCalculator.valField(field)).toEqual(15);
-  });
-  it("retrieves a custom value", function(){
-    field.value = 20;
-    expect(tipCalculator.valField(field)).toEqual(20);
-  });
-  it("retrieves a floating point number", function(){
-    field.value = 17.25;
-    expect(tipCalculator.valField(field)).toEqual(17.25);
-  });
-});
-
 describe("Tip Calculator Output", function(){
   let billTotal = document.createElement("span"),
       tipTotal = document.createElement("span");

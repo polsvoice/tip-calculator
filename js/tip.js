@@ -26,10 +26,6 @@ export function createTipCalculator(spec) {
       const tipToDec = tipDecimal();
       return valToCurrency(getBill() + tipToDec);
     },
-    // Get tip amount from field
-    valField = function(field) {
-      return parseFloat(field.value) || parseFloat(field.placeholder);
-    },
     attachNodeVal = function(element, value) {
       const valCurrency = valToCurrency(value);
       const newText = document.createTextNode(valCurrency);  
@@ -67,7 +63,6 @@ export function createTipCalculator(spec) {
       roundToCents,
       tipDecimal,
       total,
-      valField,
       attachNodeVal,
       calculate,
       isValid,
