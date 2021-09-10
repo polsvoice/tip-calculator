@@ -2,7 +2,8 @@ import {createTipCalculator} from "../js/tip.js";
 
 (function(){
   "use strict";
-  const form = document.querySelector("#form-calc"),
+  const tipCalculator = createTipCalculator({bill: 0, tip: 0}),
+        form = document.querySelector("#form-calc"),
         bill = document.querySelector("#bill"),
         tip = document.querySelector("#tip"),
         tipAmountOutput = document.querySelector("#tip-amount"),

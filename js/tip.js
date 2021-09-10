@@ -41,15 +41,11 @@ export function createTipCalculator(spec) {
       element.appendChild(newText);
       return element;
     },
-<<<<<<< HEAD
-    isValid = function(value) {
-=======
     calculate = function(totalOutput, tipOutput) {
       attachNodeVal(totalOutput, total());
       attachNodeVal(tipOutput, tipDecimal());
     },
-    isValid = function(element) {
->>>>>>> auto-update
+    isValid = function(value) {
       // Convert string into number. If it's a non-numeric string,
       // it'll return 0
       return Number(value) ? true : false;
